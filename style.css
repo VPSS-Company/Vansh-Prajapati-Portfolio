@@ -1,0 +1,197 @@
+ :root {
+            --primary: #46a1f5; /* Slogan Blue */
+            --accent: #00e5ff;  /* Slogan Cyan */
+            --dark-bg: #030712;
+            --glass: rgba(15, 23, 42, 0.8);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+        body {
+            background-color: var(--dark-bg);
+            color: #f8fafc;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Custom Background Canvas --- */
+        .tech-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 15% 15%, rgba(70, 161, 245, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(0, 229, 255, 0.08) 0%, transparent 40%);
+            z-index: -1;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 40px;
+            background: var(--card-glass);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--border) rgb(148, 163, 184);
+            position: sticky; top: 20px; z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+           
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: left;
+        }
+
+        .slogan-box {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            color: #ffffff;
+        }
+
+        .highlight-blue { color: var(--primary); }
+        .highlight-cyan { color: var(--accent); }
+
+        .typewriter {
+            border-right: 3px solid var(--accent);
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing { from { width: 0 } to { width: 100% } }
+        @keyframes blink-caret { from, to { border-color: transparent } 50% { border-color: var(--accent); } }
+
+        /* --- Experience Bento --- */
+        .bento-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+            margin-bottom: 60px;
+        }
+
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: 0.3s;
+        }
+
+        .glass-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+
+        /* --- Projects Grid --- */
+        .section-header { margin-bottom: 40px; }
+        .section-header h2 { font-size: 2.5rem; }
+        .section-header p { color: #94a3b8; margin-top: 10px; }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--glass);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            display: flex; flex-direction: column; justify-content: space-between;
+            position: relative; overflow: hidden;
+        }
+
+        .project-card::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0; transition: 0.3s;
+        }
+
+        .project-card:hover::before { opacity: 1; }
+        .project-card h3 { font-size: 1.5rem; color: #fff; margin-bottom: 12px; }
+        .project-card p { color: #94a3b8; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.6; }
+
+        .btn {
+            display: inline-block;
+            text-align: center;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover { background: var(--primary); border-color: var(--primary); box-shadow: 0 0 20px rgba(70, 161, 245, 0.4); }
+
+        /* --- Skill Tags --- */
+        .skills-wrap { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .skill-tag {
+            padding: 6px 15px; background: rgba(70, 161, 245, 0.1);
+            border: 1px solid rgba(70, 161, 245, 0.2);
+            border-radius: 50px; font-size: 0.85rem; color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .bento-row { grid-template-columns: 1fr; }
+            .hero { text-align: center; }
+            .slogan-box { font-size: 2.5rem; }
+        }
+
+ .contact-terminal {
+        margin-top: 80px;
+        background: var(--glass);
+        border: 1px solid rgba(70, 161, 245, 0.2);
+        border-radius: 24px;
+        padding: 40px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Decorative corner accent */
+    .contact-terminal::before {
+        content: "COMMUNICATION_LINK_ESTABLISHED";
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 0.6rem;
+        color: var(--accent);
+        letter-spacing: 2px;
+        opacity: 0.5;
+    }
+
+    .info-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .info-label {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: var(--primary);
+        letter-spacing: 1.5px;
+        font-weight: bold;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .info-value:hover {
+        color: var(--accent);
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.5);
+    }
+
