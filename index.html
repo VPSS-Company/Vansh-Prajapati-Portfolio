@@ -196,5 +196,106 @@
     </div>
 </div>
     </div>
+
+
+
+
+    <!-- SECRET PROJECT VAULT -->
+<div id="secretVault" class="secret-vault">
+    <div class="secret-vault-box">
+
+        <button class="secret-close" onclick="closeSecretVault()">×</button>
+
+        <div class="secret-label">CLASSIFIED ACCESS</div>
+        <h2>Hidden Project Vault</h2>
+        <p class="secret-subtitle">
+            Projects that aren't displayed in the main portfolio.
+        </p>
+
+        <div class="secret-project-grid">
+
+            <div class="secret-project">
+                <span class="secret-number">01</span>
+                <h3>Date Planner</h3>
+                <p></p>
+                <a href="https://dateeplanner.netlify.app/" target="_blank">Open Project →</a>
+            </div>
+
+            
+        </div>
+
+        <div class="secret-hint">
+            ACCESS GRANTED • VPSS-COMPANY
+        </div>
+
+    </div>
+</div>
+
+<!-- Tiny secret trigger -->
+<button
+    id="secretTrigger"
+    class="secret-trigger"
+    aria-label="Secret"
+    onclick="openSecretVault()">
+</button>
+
+<script>
+    /*
+      SECRET PROJECT VAULT
+
+      Keyboard combination:
+      CTRL + SHIFT + H
+    */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (
+            event.ctrlKey &&
+            event.shiftKey &&
+            event.key.toLowerCase() === "h"
+        ) {
+            event.preventDefault();
+            openSecretVault();
+        }
+
+    });
+
+    function openSecretVault() {
+        document.getElementById("secretVault").classList.add("active");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeSecretVault() {
+        document.getElementById("secretVault").classList.remove("active");
+        document.body.style.overflow = "";
+    }
+
+    // Close with Escape
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            closeSecretVault();
+        }
+    });
+
+
+    let secretClicks = 0;
+let secretTimer;
+
+document.querySelector(".nav-logo").addEventListener("click", function () {
+
+    secretClicks++;
+
+    clearTimeout(secretTimer);
+
+    secretTimer = setTimeout(() => {
+        secretClicks = 0;
+    }, 1500);
+
+    if (secretClicks === 5) {
+        openSecretVault();
+        secretClicks = 0;
+    }
+});
+</script>
 </body>
 </html>
